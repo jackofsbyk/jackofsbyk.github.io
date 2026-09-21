@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="北京春晚相声专题页，提供历年北京电视台春节联欢晚会经典相声视频回顾、相声演员资料、演出曲目表及观看指南。">
+    <meta name="keywords" content="北京春晚相声,北京卫视春晚,相声视频,经典相声,春晚小品">
+    <title>北京春晚相声-经典回顾与在线观看指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-red: #C8102E;
+            --primary-dark: #8a0a1f;
+            --gold: #FFD700;
+            --bg-gray: #f5f5f5;
+            --text-main: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-red);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: var(--white);
+            color: var(--primary-red);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .search-box button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--text-main);
+            border-left: 5px solid var(--primary-red);
+            padding-left: 15px;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .section-more a {
+            color: var(--primary-red);
+        }
+
+        /* Grid Layouts */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-thumb {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .video-card:hover .card-thumb img {
+            opacity: 1;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(200, 16, 46, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+        }
+
+        .card-info {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Info Sections */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .article-list {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .article-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-date {
+            background: var(--bg-gray);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            min-width: 60px;
+            flex-shrink: 0;
+        }
+
+        .article-date .day {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-red);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .article-content h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .article-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .widget {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .widget h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-gray);
+            color: var(--primary-red);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-cloud a {
+            background: var(--bg-gray);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .tag-cloud a:hover {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .performer-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .performer-list li:last-child {
+            border-bottom: none;
+        }
+
+        .performer-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #ddd;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #999;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span>北</span> 京 春 晚 相 声
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">经典回顾</a></li>
+                    <li><a href="#">年度盘点</a></li>
+                    <li><a href="#">幕后花絮</a></li>
+                    <li><a href="#">演员资料</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>重温欢声笑语，品味京味幽默</h1>
+            <p>收录历年北京电视台春节联欢晚会（BTV春晚）中高水准相声作品，为您呈现最具代表性的京味儿文化盛宴。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索相声名称、演员或年份...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Hot Section -->
+        <section class="section-header">
+            <h2 class="section-title">热门推荐</h2>
+            <div class="section-more"><a href="#">查看更多 ></a></div>
+        </section>
+
+        <div class="video-grid">
+            <!-- Video Card 1 -->
+            <article class="video-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/comedy1/400/225" alt="2023年北京春晚相声片段">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">《如此生活》—— 2023年北京电视台春节联欢晚会</h3>
+                    <div class="card-meta">
+                        <span>2023-02-21</span>
+                        <span>⏱ 12:45</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Video Card 2 -->
+            <article class="video-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/comedy2/400/225" alt="经典对口相声">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">《奋斗》—— 郭德纲 于谦（2015年北京春晚）</h3>
+                    <div class="card-meta">
+                        <span>2015-02-18</span>
+                        <span>⏱ 15:20</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Video Card 3 -->
+            <article class="video-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/comedy3/400/225" alt="传统相声新编">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">《文玩》—— 岳云鹏 孙越（2021年北京春晚）</h3>
+                    <div class="card-meta">
+                        <span>2021-02-11</span>
+                        <span>⏱ 13:10</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Video Card 4 -->
+            <article class="video-card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/comedy4/400/225" alt="讽刺类相声">
+                    <div class="play-icon">▶</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">《生活趣谈》—— 李金斗 刘颖（经典京味儿）</h3>
+                    <div class="card-meta">
+                        <span>2018-02-15</span>
+                        <span>⏱ 14:05</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Content Split -->
+        <div class="info-grid">
+            
+            <!-- Left: News/Articles -->
+            <section>
+                <div class="section-header" style="margin-bottom: 20px; border:none; padding:0;">
+                    <h2 class="section-title">最新资讯</h2>
+                </div>
+                <div class="article-list">
+                    <article class="article-item">
+                        <div class="article-date">
+                            <span class="day">05</span>
+                            <span>2023</span>
+                        </div>
+                        <div class="article-content">
+                            <h3><a href="#">BTV春晚相声专场：传统技艺与时代精神的碰撞</a></h3>
+                            <p>今年的北京春晚相声节目在保留传统捧逗技艺的基础上，融入了更多现代生活元素，探讨了当代年轻人的奋斗与困惑...</p>
+                        </div>
+                    </article>
+                    <article class="article-item">
+                        <div class="article-date">
+                            <span class="day">02</span>
+                            <span>2023</span>
+                        </div>
+                        <div class="article-content">
+                            <h3><a href="#">盘点近年来最受欢迎的京味儿相声组合</a></h3>
+                            <p>从传统的“京味儿”到新派的“网络风”，北京春晚见证了无数相声演员的成长与蜕变，哪些组合让你印象最深？</p>
+                        </div>
+                    </article>
+                    <article class="article-item">
+                        <div class="article-date">
+                            <span class="day">28</span>
+                            <span>2022</span>
+                        </div>
+                        <div class="article-content">
+                            <h3><a href="#">相声艺术如何适应新媒体时代的观众审美</a></h3>
+                            <p>随着短视频平台的兴起，相声演员们纷纷尝试新的传播方式，如何在保持语言艺术魅力的同时抓住年轻观众的眼球？</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Right: Sidebar -->
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3>热门标签</h3>
+                    <div class="tag-cloud">
+                        <a href="#">郭德纲</a>
+                        <a href="#">于谦</a>
+                        <a href="#">岳云鹏</a>
+                        <a href="#">李金斗</a>
+                        <a href="#">冯巩</a>
+                        <a href="#">京味儿</a>
+                        <a href="#">讽刺幽默</a>
+                        <a href="#">传统相声</a>
+                        <a href="#">捧哏</a>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3>常驻嘉宾</h3>
+                    <ul class="performer-list">
+                        <li>
+                            <img src="https://picsum.photos/seed/p1/40/40" alt="郭德纲" class="performer-avatar">
+                            <div>
+                                <div style="font-weight:bold;">郭德纲</div>
+                                <div style="font-size:12px;color:#999;">德云社班主</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://picsum.photos/seed/p2/40/40" alt="于谦" class="performer-avatar">
+                            <div>
+                                <div style="font-weight:bold;">于谦</div>
+                                <div style="font-size:12px;color:#999;">捧哏泰斗</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://picsum.photos/seed/p3/40/40" alt="岳云鹏" class="performer-avatar">
+                            <div>
+                                <div style="font-weight:bold;">岳云鹏</div>
+                                <div style="font-size:12px;color:#999;">德云社新星</div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="https://picsum.photos/seed/p4/40/40" alt="李金斗" class="performer-avatar">
+                            <div>
+                                <div style="font-weight:bold;">李金斗</div>
+                                <div style="font-size:12px;color:#999;">京味儿代表</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Categories Section -->
+        <section class="section-header">
+            <h2 class="section-title">按年份分类</h2>
+        </section>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;">
+            <a href="#" style="background:var(--white); padding:8px 16px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">2023年</a>
+            <a href="#" style="background:var(--white); padding:8px 16px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">2022年</a>
+            <a href="#" style="background:var(--white); padding:8px 16px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">2021年</a>
+            <a href="#" style="background:var(--white); padding:8px 16px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">2020年</a>
+            <a href="#" style="background:var(--white); padding:8px 16px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">2010年代</a>
+            <a href="#" style="background:var(--white); padding:8px 16px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">经典老段</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <p style="font-size: 14px; line-height: 1.8;">北京春晚相声专题致力于整理和分享北京电视台春节联欢晚会中的优秀相声作品。本站内容仅供学习交流与娱乐参考，所有版权归原制作方及演员所有。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">网站首页</a></li>
+                    <li><a href="#">经典回顾</a></li>
+                    <li><a href="#">年度盘点</a></li>
+                    <li><a href="#">联系站长</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>友情链接</h4>
+                <ul>
+                    <li><a href="#">北京电视台</a></li>
+                    <li><a href="#">德云社</a></li>
+                    <li><a href="#">相声艺术</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 北京春晚相声专题页 版权所有</p>
+        </div>
+    </footer>
+
+</body>
+</html>
